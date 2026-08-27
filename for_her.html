@@ -24392,7 +24392,7 @@
                   children:
                     loading
                       ? "Loading photos from Cloudinary..."
-                      : "Hover the last frame to upload a new photo.",
+                      : "Tap the last frame to add a new photo.",
                 }),
               ],
             }),
@@ -24426,29 +24426,10 @@
                                 imageUrl: item.photo.imageUrl,
                                 rotate: oA[item.idx % oA.length],
                               }),
-                              (0, u.jsx)("label", {
-                                className:
-                                  "absolute inset-0 flex items-center justify-center bg-plum/50 opacity-0 hover:opacity-100 transition-opacity cursor-pointer",
-                                children: [
-                                  (0, u.jsx)(oX, {
-                                    size: 28,
-                                    className: "text-ivory",
-                                  }),
-                                  (0, u.jsx)("input", {
-                                    type: "file",
-                                    accept: "image/*",
-                                    onChange: l,
-                                    className:
-                                      "absolute inset-0 opacity-0 cursor-pointer",
-                                    "data-index": item.idx,
-                                    disabled: uploading,
-                                  }),
-                                ],
-                              }),
                             ],
                           })
                         ) : (
-                          // Upload button as last item
+                          // Upload button as last item (empty polaroid frame)
                           (0, u.jsxs)(aW.button, {
                             type: "button",
                             className: "w-full relative",
