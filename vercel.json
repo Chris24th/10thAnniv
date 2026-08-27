@@ -1,7 +1,7 @@
 {
-  "buildCommand": false,
-  "devCommand": false,
-  "installCommand": false,
+  "buildCommand": null,
+  "devCommand": null,
+  "installCommand": null,
   "framework": null,
   "rewrites": [
     {
