@@ -61,12 +61,14 @@ export default async function handler(req, res) {
     }).toString();
 
     const url = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/resources/image?${queryString}`;
+    console.log('Cloudinary request URL:', url.replace(CLOUDINARY_API_SECRET, '***'));
     const response = await fetch(url);
 
     if (!response.ok) {
       const errText = await response.text();
       console.error('Cloudinary API error:', response.status, errText);
-      return res.status(response.status).json({ error: 'Cloudinary API error' });
+      // Return actual Cloudinary error for debugging
+      return res.status(response.status).json({ error: 'Cloudinary API error', details: errText });
     }
 
     const data2 = await response.json();
