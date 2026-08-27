@@ -69,10 +69,10 @@ export default async function handler(req, res) {
       return res.status(response.status).json({ error: 'Cloudinary API error' });
     }
 
-    const data = await response.json();
+    const data2 = await response.json();
 
     // Transform to minimal format for frontend
-    const images = data.resources.map((r) => ({
+    const images = data2.resources.map((r) => ({
       caption: r.public_id.replace(`${folder}/`, ''),
       imageUrl: r.secure_url,
       publicId: r.public_id,
