@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { folder = "personal", max = "20" } = req.query;
+    const { folder = "personal", max = "40" } = req.query;
     const maxResults = Math.min(parseInt(max, 10), 100);
 
     const CLOUDINARY_CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME;
@@ -30,6 +30,7 @@ export default async function handler(req, res) {
       type: "upload",
       prefix: folder + "/",
       max_results: maxResults.toString(),
+      sort_by: "created_at",
       direction: "desc",
     }).toString();
 
